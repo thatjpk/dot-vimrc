@@ -1,7 +1,7 @@
 Installation:
 
     cd 
-    git clone https://github.com/thatjpk/dot-vimrc
+    git clone https://github.com/thatjpk/dot-vimrc.git
     cd dot-vimrc/.vim
     mkdir backups
     mkdir bundle
