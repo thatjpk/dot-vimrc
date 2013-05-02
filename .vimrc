@@ -10,7 +10,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'JavaScript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'ervandew/supertab'
-" Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe' " Doesn't work on current ver of ubuntu's vim
+Bundle 'nono/vim-handlebars'
 
 " Set backup files to a central spot .........................................
 set backup
@@ -20,7 +21,8 @@ set dir=~/.vim/backups
 " misc config ................................................................
 set nocompatible " We don't want vi compat
 set pastetoggle=<F2> " bind pastetoggle to f2
-filetype on " Automatically detect file types.
+"filetype on " Automatically detect file types.
+filetype off " Fixes vim-handlebars, for some reason.
 
 " searching ..................................................................
 set incsearch " search while you type
@@ -46,7 +48,8 @@ colorscheme desert256 " Non-suck color scheme
 
 " ctrlp ......................................................................
 let g:ctrlp_working_path_mode = 0 " ctrlp search relative to the project root
-" ignore some stuff
+" ignore some stuff (would be nice to do this in a project-specific way, but
+" until then there's this joint)
 set wildignore+=.git,*.pyc,node_modules,.sass-cache,.tmp,temp,dist,blmapp/components
 
 " misc bindings .............................................................
