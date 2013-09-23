@@ -1,5 +1,13 @@
 " jpk's .vimrc
 
+
+" misc config ................................................................
+set nocompatible " We don't want vi compat
+set pastetoggle=<F2> " bind pastetoggle to f2
+" Hack to prevent vi and vim exit status on OS X from being 1.
+filetype on 
+filetype off
+
 " vundle .....................................................................
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -17,12 +25,6 @@ Bundle 'nono/vim-handlebars'
 set backup
 set backupdir=~/.vim/backups
 set dir=~/.vim/backups
-
-" misc config ................................................................
-set nocompatible " We don't want vi compat
-set pastetoggle=<F2> " bind pastetoggle to f2
-"filetype on " Automatically detect file types.
-filetype off " Fixes vim-handlebars, for some reason.
 
 " searching ..................................................................
 set incsearch " search while you type
