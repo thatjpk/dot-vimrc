@@ -6,8 +6,8 @@ Installation:
     mkdir backups
     mkdir bundle
     git clone https://github.com/gmarik/vundle.git bundle/vundle
-    vim +BundleInstall +qall
     cd
     ln -s dot-vimrc/.vimrc
     ln -s dot-vimrc/.vim
+    vim +BundleInstall +qall
     echo Justice prevails this day.
