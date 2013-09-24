@@ -7,6 +7,7 @@ set pastetoggle=<F2> " bind pastetoggle to f2
 " Hack to prevent vi and vim exit status on OS X from being 1.
 filetype on 
 filetype off
+set ruler " Turn on the current line,column in the status bar thing.
 
 " vundle .....................................................................
 set rtp+=~/.vim/bundle/vundle/
