@@ -8,6 +8,8 @@ set pastetoggle=<F2> " bind pastetoggle to f2
 filetype on 
 filetype off
 set ruler " Turn on the current line,column in the status bar thing.
+set hlsearch " Highlight every occurance of the last thin you searched for.
+set colorcolumn=80 " Paint the 80th column red as a line-wrapping guide
 
 " vundle .....................................................................
 set rtp+=~/.vim/bundle/vundle/
