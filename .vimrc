@@ -1,6 +1,5 @@
 " jpk's .vimrc
 
-
 " misc config ................................................................
 set nocompatible " We don't want vi compat
 set pastetoggle=<F2> " bind pastetoggle to f2
@@ -53,6 +52,11 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=none ctermbg=none
 hi clear SpellCap
 hi SpellCap cterm=underline ctermbg=none ctermfg=none
+hi clear SpellRare
+
+" Tab completion menu color ..................................................
+hi Pmenu cterm=none ctermbg=17 ctermfg=grey
+hi PmenuSel cterm=bold ctermbg=18 ctermfg=white
 
 " gvim config ................................................................
 "set guioptions-=m " Remove menu bar
