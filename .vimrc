@@ -20,6 +20,7 @@ Bundle 'JavaScript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'nono/vim-handlebars'
+Bundle 'airblade/vim-gitgutter'
 
 " set backup files to a central spot .........................................
 set backup
@@ -47,6 +48,13 @@ colorscheme desert256 " Non-suck color scheme
 " override vsplit divider color and fill char
 hi VertSplit ctermbg=17 ctermfg=8 cterm=none " set vsplit color
 set fillchars+=vert:┆ " set vsplit fill char
+
+" Override the gitgutter sign column color
+hi SignColumn            ctermbg=235
+hi GitGutterAdd          ctermbg=235 ctermfg=green  cterm=bold
+hi GitGutterChange       ctermbg=235 ctermfg=yellow cterm=bold
+hi GitGutterDelete       ctermbg=235 ctermfg=red    cterm=bold
+hi GitGutterChangeDelete ctermbg=235 ctermfg=blue   cterm=bold
 
 " 80 column ruler ............................................................ 
 " color background from column 80 to 500
