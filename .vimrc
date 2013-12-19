@@ -7,7 +7,6 @@ set pastetoggle=<F2> " bind pastetoggle to f2
 filetype on 
 filetype off
 set hlsearch " Highlight every occurrence of the last thin you searched for.
-set colorcolumn=80 " Paint the 80th column red as a line-wrapping guide
 set completeopt-=preview " Dont show the scratch window while tabbing compls
 
 " vundle .....................................................................
@@ -44,9 +43,16 @@ filetype indent on
 syntax enable " Turn on syntax highlighting.
 set t_Co=256 " Enable high-color
 colorscheme desert256 " Non-suck color scheme
+
+" override vsplit divider color and fill char
 hi VertSplit ctermbg=17 ctermfg=8 cterm=none " set vsplit color
 set fillchars+=vert:┆ " set vsplit fill char
 
+" 80 column ruler ............................................................ 
+" color background from column 80 to 500
+let &colorcolumn="80,".join(range(81,500),",") 
+" this color
+hi ColorColumn ctermbg=235 
 
 " status line ................................................................
 " always show the statusline
