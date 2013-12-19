@@ -49,6 +49,8 @@ set fillchars+=vert:┆ " set vsplit fill char
 
 
 " status line ................................................................
+" always show the statusline
+set laststatus=2
 " highlight groups for status line (overrides colorscheme)
 hi StatusLine ctermbg=20 ctermfg=white cterm=bold
 hi StatusLineNC ctermbg=19 ctermfg=grey cterm=none
