@@ -110,18 +110,6 @@ let g:ycm_max_diagnostics_to_display = 1000
 " misc bindings .............................................................
 " Make Enter save the file
 nnoremap <CR> :write <CR>
-cabbrev w Yo, use Enter to save!
-" ctrl+arrow to move between panes (doesn't work, not sure why)
-"map <ESC>[Oa <C-Up>
-"map <ESC>[Ob <C-Down>
-"map <ESC>[Oc <C-Left>
-"map <ESC>[Od <C-Right>
-"map! <ESC>[Oa <C-Up>
-"map! <ESC>[Ob <C-Down>
-"map! <ESC>[Oc <C-Left>
-"map! <ESC>[Od <C-Right>
-"noremap <silent> <C-Up> :wincmd k<CR>
-"noremap <silent> <C-Down> :wincmd j<CR>
-"noremap <silent> <C-Left> :wincmd l<CR>
-"noremap <silent> <C-Right> :wincmd h<CR>
-
+"cabbrev w Yo, use Enter to save! " Commented out because I've learned it
+" map shift-tab to tab through splits
+map <S-Tab> <C-W><C-W>
