@@ -51,10 +51,10 @@ set fillchars+=vert:┆ " set vsplit fill char
 
 " Override the gitgutter sign column color
 hi SignColumn            ctermbg=235
-hi GitGutterAdd          ctermbg=235 ctermfg=green  cterm=bold
-hi GitGutterChange       ctermbg=235 ctermfg=yellow cterm=bold
-hi GitGutterDelete       ctermbg=235 ctermfg=red    cterm=bold
-hi GitGutterChangeDelete ctermbg=235 ctermfg=blue   cterm=bold
+hi GitGutterAdd          ctermbg=235 ctermfg=green  cterm=none
+hi GitGutterChange       ctermbg=235 ctermfg=yellow cterm=none
+hi GitGutterDelete       ctermbg=235 ctermfg=red    cterm=none
+hi GitGutterChangeDelete ctermbg=235 ctermfg=red    cterm=none
 
 " 80 column ruler ............................................................ 
 " color background from column 80 to 500
