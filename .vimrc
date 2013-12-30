@@ -21,6 +21,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'nono/vim-handlebars'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'szw/vim-maximizer'
 
 " set backup files to a central spot .........................................
 set backup
