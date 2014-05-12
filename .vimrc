@@ -57,6 +57,10 @@ hi GitGutterChange       ctermbg=235 ctermfg=yellow cterm=none
 hi GitGutterDelete       ctermbg=235 ctermfg=red    cterm=none
 hi GitGutterChangeDelete ctermbg=235 ctermfg=red    cterm=none
 
+" Make gitgutter run less so it doesn't lag vim
+let g:gitgutter_eager = 0
+let g:gitgutter_realtime = 0
+
 " 80 column ruler ............................................................ 
 " color background from column 80 to 500
 let &colorcolumn="80,".join(range(81,500),",") 
@@ -107,6 +111,7 @@ set wildignore+=.git,*.o,*.pyc,node_modules,.sass-cache,.tmp,temp,dist,blmapp/co
 " ycm ........................................................................
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_max_diagnostics_to_display = 1000
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " misc bindings .............................................................
 " Make Enter save the file
