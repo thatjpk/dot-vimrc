@@ -22,6 +22,10 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'nono/vim-handlebars'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'szw/vim-maximizer'
+Bundle 'Glench/Vim-Jinja2-Syntax'
+
+" turn on mouse support ......................................................
+set mouse=a
 
 " set backup files to a central spot .........................................
 set backup
