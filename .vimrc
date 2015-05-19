@@ -115,7 +115,12 @@ set wildignore+=.git,*.o,*.pyc,node_modules,.sass-cache,.tmp,temp,dist,blmapp/co
 " ycm ........................................................................
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_max_diagnostics_to_display = 1000
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_path_to_python_interpreter = substitute(
+    \ system('which python'), 
+    \ '\(python[0-9\.]*\).*', 
+    \ '\1', 
+    \ ''
+\ ) " system() likes to put a null char at the end, the substitute() strips it
 
 " misc bindings .............................................................
 " Make Enter save the file
