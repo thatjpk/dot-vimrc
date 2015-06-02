@@ -110,7 +110,12 @@ hi PmenuSel cterm=bold ctermbg=18 ctermfg=white
 let g:ctrlp_working_path_mode = 0 " ctrlp search relative to the project root
 " ignore some stuff (would be nice to do this in a project-specific way, but
 " until then there's this joint)
-set wildignore+=.git,*.o,*.pyc,node_modules,.sass-cache,.tmp,temp,dist,blmapp/components
+set wildignore+=
+    \.git/,.hg/,.svn/,
+    \*.o,*.so,*.pyc,*.jar,*.class,*.dll,*.exe,
+    \node_modules/,.sass-cache/,
+    \dist/,build/,target/,
+    \.DS_Store,
 
 " ycm ........................................................................
 let g:ycm_confirm_extra_conf = 0
