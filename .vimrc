@@ -143,7 +143,9 @@ hi LineNr ctermfg=darkgrey
 
 " misc bindings ..............................................................
 " bind pastetoggle to f2
-set pastetoggle=<F2>
+if !has('nvim')
+    set pastetoggle=<F2>
+endif
 " Make Enter in normal mode save the file...
 nnoremap <CR> :write <CR>
 " ...but prevent that from messing up other stuff that uses enter
