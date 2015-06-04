@@ -51,7 +51,7 @@ set t_Co=256 " Enable high-color
 colorscheme desert256 " Non-suck color scheme
 
 " override vsplit divider color and fill char
-hi VertSplit ctermbg=20 ctermfg=15 cterm=none " set vsplit color
+hi VertSplit ctermbg=darkgray ctermfg=black cterm=none " set vsplit color
 set fillchars+=vert:┆ " set vsplit fill char
 
 " Override the gitgutter sign column color
