@@ -1,3 +1,6 @@
 !*
+.netrwhist
 bundle
 backups
+eclim
+plugin

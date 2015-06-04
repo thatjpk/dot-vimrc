@@ -2,12 +2,10 @@
 
 " misc config ................................................................
 set nocompatible " We don't want vi compat
-set pastetoggle=<F2> " bind pastetoggle to f2
+
 " Hack to prevent vi and vim exit status on OS X from being 1.
 filetype on 
 filetype off
-set hlsearch " Highlight every occurrence of the last thin you searched for.
-set completeopt-=preview " Dont show the scratch window while tabbing compls
 
 " vundle .....................................................................
 set rtp+=~/.vim/bundle/vundle/
@@ -23,6 +21,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'szw/vim-maximizer'
 Bundle 'Glench/Vim-Jinja2-Syntax'
+Bundle 'bling/vim-airline'
 
 " turn on mouse support ......................................................
 set mouse=a
@@ -33,6 +32,7 @@ set backupdir=~/.vim/backups
 set dir=~/.vim/backups
 
 " searching ..................................................................
+set hlsearch " Highlight every occurrence of the last thing you searched for.
 set incsearch " search while you type
 set wrapscan " wrap searches that hit the start/end a file
 
@@ -43,7 +43,7 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 " but do whatever a filetype plugin says, otherwise
-filetype indent on
+filetype plugin indent on
 
 " color scheme ...............................................................
 syntax enable " Turn on syntax highlighting.
@@ -51,7 +51,7 @@ set t_Co=256 " Enable high-color
 colorscheme desert256 " Non-suck color scheme
 
 " override vsplit divider color and fill char
-hi VertSplit ctermbg=17 ctermfg=8 cterm=none " set vsplit color
+hi VertSplit ctermbg=20 ctermfg=15 cterm=none " set vsplit color
 set fillchars+=vert:┆ " set vsplit fill char
 
 " Override the gitgutter sign column color
@@ -61,7 +61,7 @@ hi GitGutterChange       ctermbg=235 ctermfg=yellow cterm=none
 hi GitGutterDelete       ctermbg=235 ctermfg=red    cterm=none
 hi GitGutterChangeDelete ctermbg=235 ctermfg=red    cterm=none
 
-" Make gitgutter run less so it doesn't lag vim
+" Make gitgutter run less so it doesn't lag vim ..............................
 let g:gitgutter_eager = 0
 let g:gitgutter_realtime = 0
 
@@ -75,20 +75,23 @@ hi ColorColumn ctermbg=235
 " always show the statusline
 set laststatus=2
 " highlight groups for status line (overrides colorscheme)
-hi StatusLine ctermbg=20 ctermfg=white cterm=bold
-hi StatusLineNC ctermbg=19 ctermfg=grey cterm=none
-" status line options
-set statusline=   " clear the statusline for when vimrc is reloaded
-set statusline+=%-3.3n\                      " buffer number
-set statusline+=%f\                          " file name
-set statusline+=%h%m%r%w                     " flags
-set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-set statusline+=%{&fileformat}]              " file format
-set statusline+=%=                           " right align
-set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
-set statusline+=%b,0x%-8B\                   " ascii value of current char
-set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+"hi StatusLine ctermbg=20 ctermfg=white cterm=bold
+"hi StatusLineNC ctermbg=19 ctermfg=grey cterm=none
+" status line options (stock status line)
+"set statusline=   " clear the statusline for when vimrc is reloaded
+"set statusline+=%-3.3n\                      " buffer number
+"set statusline+=%f\                          " file name
+"set statusline+=%h%m%r%w                     " flags
+"set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+"set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+"set statusline+=%{&fileformat}]              " file format
+"set statusline+=%=                           " right align
+"set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+"set statusline+=%b,0x%-8B\                   " ascii value of current char
+"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+" status line config (airline)
+let g:airline_powerline_fonts = 1
+let g:airline_theme='light'
 
 " spell checking .............................................................
 set spell 
@@ -98,7 +101,8 @@ hi clear SpellCap
 hi SpellCap cterm=underline ctermbg=none ctermfg=none
 hi clear SpellRare
 
-" Tab completion menu color ..................................................
+" completion ................................................................
+set completeopt-=preview " Dont show the scratch window while tabbing compls
 hi Pmenu cterm=none ctermbg=17 ctermfg=grey
 hi PmenuSel cterm=bold ctermbg=18 ctermfg=white
 
@@ -111,10 +115,10 @@ let g:ctrlp_working_path_mode = 0 " ctrlp search relative to the project root
 " ignore some stuff (would be nice to do this in a project-specific way, but
 " until then there's this joint)
 set wildignore+=
-    \.git/,.hg/,.svn/,
+    \*/.git/*,*/.hg/*,*/.svn/*,
     \*.o,*.so,*.pyc,*.jar,*.class,*.dll,*.exe,
-    \node_modules/,.sass-cache/,
-    \dist/,build/,target/,
+    \*/node_modules/*,*/.sass-cache/*,
+    \*/dist/*,*/build/*,*/target/*,
     \.DS_Store,
 
 " ycm ........................................................................
@@ -127,9 +131,21 @@ let g:ycm_path_to_python_interpreter = substitute(
     \ ''
 \ ) " system() likes to put a null char at the end, the substitute() strips it
 
-" misc bindings .............................................................
-" Make Enter save the file
+" Eclim ......................................................................
+let g:EclimCompletionMethod = 'omnifunc'  " jive with ycm
+let g:EclimJavaCompleteCaseSensitive = 0  " allow case-insensitive fuzzy compl
+
+" misc bindings ..............................................................
+" bind pastetoggle to f2
+set pastetoggle=<F2>
+" Make Enter in normal mode save the file...
 nnoremap <CR> :write <CR>
-"cabbrev w Yo, use Enter to save! " Commented out because I've learned it
-" map shift-tab to tab through splits
+" ...but prevent that from messing up other stuff that uses enter
+autocmd CmdwinEnter * nnoremap <CR> <CR>
+autocmd BufReadPost quickfix nnoremap <CR> <CR>
+" ...and if we use enter to save, this is good to break the :w muscle memory
+" it may be commented out once enter-to-save is learned
+"cabbrev w Yo, use Enter to save!
+" map shift-tab to cycle through splits
 map <S-Tab> <C-W><C-W>
+
