@@ -4,4 +4,5 @@
 setlocal colorcolumn=
 " disable line numebrs
 setlocal nonumber
+setlocal norelativenumber
 

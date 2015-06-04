@@ -4,7 +4,7 @@
 set nocompatible " We don't want vi compat
 
 " Hack to prevent vi and vim exit status on OS X from being 1.
-filetype on 
+filetype on
 filetype off
 
 " vundle .....................................................................
@@ -65,11 +65,11 @@ hi GitGutterChangeDelete ctermbg=235 ctermfg=red    cterm=none
 let g:gitgutter_eager = 0
 let g:gitgutter_realtime = 0
 
-" 80 column ruler ............................................................ 
+" 80 column ruler ............................................................
 " color background from column 80 to 500
-let &colorcolumn="80,".join(range(81,500),",") 
+let &colorcolumn="80,".join(range(81,500),",")
 " this color
-hi ColorColumn ctermbg=235 
+hi ColorColumn ctermbg=235
 
 " status line ................................................................
 " always show the statusline
@@ -94,7 +94,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='light'
 
 " spell checking .............................................................
-set spell 
+set spell
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=none ctermbg=none
 hi clear SpellCap
@@ -125,15 +125,21 @@ set wildignore+=
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_max_diagnostics_to_display = 1000
 let g:ycm_path_to_python_interpreter = substitute(
-    \ system('which python'), 
-    \ '\(python[0-9\.]*\).*', 
-    \ '\1', 
+    \ system('which python'),
+    \ '\(python[0-9\.]*\).*',
+    \ '\1',
     \ ''
 \ ) " system() likes to put a null char at the end, the substitute() strips it
 
 " Eclim ......................................................................
 let g:EclimCompletionMethod = 'omnifunc'  " jive with ycm
 let g:EclimJavaCompleteCaseSensitive = 0  " allow case-insensitive fuzzy compl
+
+" line numbers ...............................................................
+" use relative line numbers
+set nonumber
+set relativenumber
+hi LineNr ctermfg=darkgrey
 
 " misc bindings ..............................................................
 " bind pastetoggle to f2
