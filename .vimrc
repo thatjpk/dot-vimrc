@@ -2,6 +2,7 @@
 
 " misc config ................................................................
 set nocompatible " We don't want vi compat
+set noshowmode   " vim-airline takes care of this, so hide default mode label
 
 " Hack to prevent vi and vim exit status on OS X from being 1.
 filetype on
@@ -22,6 +23,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'szw/vim-maximizer'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
 
 " turn on mouse support ......................................................
 set mouse=a
