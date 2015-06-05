@@ -53,8 +53,8 @@ set t_Co=256 " Enable high-color
 colorscheme desert256 " Non-suck color scheme
 
 " override vsplit divider color and fill char
-hi VertSplit ctermbg=darkgray ctermfg=black cterm=none " set vsplit color
-set fillchars+=vert:┆ " set vsplit fill char
+hi VertSplit ctermbg=gray ctermfg=black cterm=none " set vsplit color
+set fillchars+=vert:\   " set vsplit fill char to space
 
 " Override the gitgutter sign column color
 hi SignColumn            ctermbg=235
@@ -117,11 +117,13 @@ let g:ctrlp_working_path_mode = 0 " ctrlp search relative to the project root
 " ignore some stuff (would be nice to do this in a project-specific way, but
 " until then there's this joint)
 set wildignore+=
-    \*/.git/*,*/.hg/*,*/.svn/*,
     \*.o,*.so,*.pyc,*.jar,*.class,*.dll,*.exe,
     \*/node_modules/*,*/.sass-cache/*,
     \*/dist/*,*/build/*,*/target/*,
     \.DS_Store,
+" need to make ignoring version control metadata specific to ctrlp because
+" putting it wildignore breaks things like vim-fugitive
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " ycm ........................................................................
 let g:ycm_confirm_extra_conf = 0
