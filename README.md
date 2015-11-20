@@ -7,7 +7,8 @@ Installation:
     mkdir bundle
     git clone https://github.com/gmarik/vundle.git bundle/vundle
     cd
-    ln -s dot-vimrc/.vimrc
-    ln -s dot-vimrc/.vim
+    ln -s dot-vimrc/.vimrc             # for vim
+    ln -s dot-vimrc/.vim               # for vim
+    ln -s dot-vimrc/.vim .config/nvim  # for neovim
     vim +BundleInstall +qall
     echo Justice prevails this day.
