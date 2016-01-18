@@ -69,7 +69,9 @@ let g:gitgutter_realtime = 0
 
 " 80 column ruler ............................................................
 " color background from column 80 to 500
-let &colorcolumn="80,".join(range(81,500),",")
+" let &colorcolumn="80,".join(range(81,500),",")
+" or, color just column 80
+let &colorcolumn="80"
 " this color
 hi ColorColumn ctermbg=235
 
