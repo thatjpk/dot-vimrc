@@ -30,8 +30,8 @@ set mouse=a
 
 " set backup files to a central spot .........................................
 set backup
-set backupdir=~/.vim/backups
-set dir=~/.vim/backups
+set backupdir=~/.vim/backups//
+set dir=~/.vim/backups//
 
 " searching ..................................................................
 set hlsearch " Highlight every occurrence of the last thing you searched for.
