@@ -22,7 +22,8 @@ Bundle 'nono/vim-handlebars'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'szw/vim-maximizer'
 Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
 
 " turn on mouse support ......................................................
