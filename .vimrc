@@ -25,6 +25,7 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
+Bundle 'chrisbra/csv.vim'
 
 " turn on mouse support ......................................................
 set mouse=a
