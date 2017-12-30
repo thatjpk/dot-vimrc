@@ -133,12 +133,18 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_max_diagnostics_to_display = 1000
 let g:ycm_path_to_python_interpreter = substitute(
-    \ system('which python'),
+    \ system('which python3'),
     \ '\(python[0-9\.]*\).*',
     \ '\1',
     \ ''
 \ ) " system() likes to put a null char at the end, the substitute() strips it
-
+" let g:ycm_path_to_python_interpreter = substitute(
+"     \ system('which python'),
+"     \ '\(python[0-9\.]*\).*',
+"     \ '\1',
+"     \ ''
+" \ ) " system() likes to put a null char at the end, the substitute() strips it
+" 
 " Eclim ......................................................................
 let g:EclimCompletionMethod = 'omnifunc'  " jive with ycm
 let g:EclimJavaCompleteCaseSensitive = 0  " allow case-insensitive fuzzy compl
