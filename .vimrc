@@ -170,3 +170,6 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " map shift-tab to cycle through splits
 map <S-Tab> <C-W><C-W>
 
+" don't let neovim try to set the cursor shape ...............................
+" (not all terminals support it, and those that don't will print garbage)
+set guicursor=
