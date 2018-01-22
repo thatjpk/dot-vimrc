@@ -138,13 +138,8 @@ let g:ycm_path_to_python_interpreter = substitute(
     \ '\1',
     \ ''
 \ ) " system() likes to put a null char at the end, the substitute() strips it
-" let g:ycm_path_to_python_interpreter = substitute(
-"     \ system('which python'),
-"     \ '\(python[0-9\.]*\).*',
-"     \ '\1',
-"     \ ''
-" \ ) " system() likes to put a null char at the end, the substitute() strips it
-" 
+"let g:pythoncomplete_completions = 0
+
 " Eclim ......................................................................
 let g:EclimCompletionMethod = 'omnifunc'  " jive with ycm
 let g:EclimJavaCompleteCaseSensitive = 0  " allow case-insensitive fuzzy compl
@@ -158,6 +153,8 @@ hi LineNr ctermfg=darkgrey
 " misc bindings ..............................................................
 " bind pastetoggle to f2
 if !has('nvim')
+    " NeoVIM does the bracketed paste thing, so this bind is only needed in
+    " vanilla vim.
     set pastetoggle=<F2>
 endif
 " Make Enter in normal mode save the file...
@@ -178,3 +175,6 @@ map <Right> gl
 " don't let neovim try to set the cursor shape ...............................
 " (not all terminals support it, and those that don't will print garbage)
 set guicursor=
+
+" Save file as root if we didn't open vim with sudo.
+cmap w!! w !sudo tee > /dev/null %
