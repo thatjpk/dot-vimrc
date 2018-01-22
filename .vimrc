@@ -170,7 +170,7 @@ map <S-Tab> <C-W><C-W>
 " Map up and down arrow keys to gk and gj, which move by screen lines instead
 " of file lines (Useful when soft wrapping is enabled)
 map <Up> gk
-map <Right> gl
+map <Down> gj 
 
 " don't let neovim try to set the cursor shape ...............................
 " (not all terminals support it, and those that don't will print garbage)
