@@ -225,7 +225,7 @@ map <F6> :LineNumsToggle<CR>
 " tree-sitter ................................................................
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
@@ -256,6 +256,8 @@ require('navigator').setup({
 EOF
 
 " golang setup ...............................................................
+if $NVIM_INIT_GOLANG != ""
+
 lua <<EOF
 require 'go'.setup({
   goimport = 'gopls', -- if set to 'gopls' will use golsp format
@@ -296,6 +298,8 @@ map <S-Tab> <C-W><C-W>
 " of file lines (Useful when soft wrapping is enabled)
 map <Up> gk
 map <Down> gj
+
+endif
 
 " don't let neovim try to set the cursor shape ...............................
 " (not all terminals support it, and those that don't will print garbage)
